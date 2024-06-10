@@ -8,6 +8,7 @@ const app = express();
 
 const { PORT } = require('./config/serverConfig') || 3002;
 const apiRoutes = require('./routes/index');
+const db = require('./models/index')
 
 
 const setupAndStartServer = async () => {
