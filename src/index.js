@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-const { PORT } = require('./config/serverConfig') || 3002;
+const { PORT, FLIGHT_SERVICE_PATH } = require('./config/serverConfig') || 3002;
 const apiRoutes = require('./routes/index');
 const db = require('./models/index')
 
@@ -18,9 +18,10 @@ const setupAndStartServer = async () => {
 
     app.listen(PORT, () => {
         console.log(`Server started on port ${PORT}`);
-        if(process.env.DB_SYNC) {
-            db.sequelize.sync({alter:true});
-        }
+        // if(process.env.DB_SYNC) {
+        //     db.sequelize.sync({alter:true});
+        // }
+        console.log(FLIGHT_SERVICE_PATH);
     });
 
 }
